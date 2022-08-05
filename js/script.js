@@ -4,7 +4,7 @@ Create the `showPage` function
 This function will create and insert/append the elements needed to display a "page" of nine students
 */
 
-// showPage function takes two parameters which will take student data and page as arguements
+// showPage function takes two parameters which will take student data and page as arguments
 function showPage (list, page) {
   // Two variables which will display start and end index of student data
   const startIndex = (page * 9) - 9
@@ -107,9 +107,10 @@ searchForm()
 const searchInput = document.getElementById('search')
 let newStudentList = []
 
-//    a. Event listner to filter out students based on the key characters provided to the search bar.
+//    a. Event listener to filter out students based on the key characters provided to the search bar.
 searchInput.addEventListener('keyup', (e) => {
   const filterInput = e.target.value.toLowerCase()
+  
 
   //    b. If individual student's data includes stored search input, add that student to new list of students
   const filteredStudent = data.filter(student => {
@@ -120,6 +121,8 @@ searchInput.addEventListener('keyup', (e) => {
   newStudentList = filteredStudent
   showPage(newStudentList, 1)
   addPagination(newStudentList)
+  const button = document.querySelectorAll("button[type='button']")
+  button[1].className = 'active'
 
   // Displays "No Results" on the page when newStudentList returns 0 matches.
   if (newStudentList.length === 0) {
